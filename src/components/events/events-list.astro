@@ -1,7 +1,7 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { MapPin, Clock3, Link } from 'lucide-react';
-import moment from 'moment';
+import type { CollectionEntry } from "astro:content";
+import { MapPin, Clock3, Link, CalendarPlus } from "lucide-react";
+import moment from "moment";
 
 interface Props {
     events: CollectionEntry<"events">[];
@@ -13,8 +13,8 @@ const { events }: Props = Astro.props;
 <div class="flex flex-col gap-10 md:justify-center md:items-center">
     {
         events &&
-            events.map(({ data }) => (
-                <div class="flex flex-col md:flex-row gap-4 items-center border-b-2 pb-8 border-mandy-200">
+            events.map(({ data, slug }) => (
+                <div class="flex flex-col md:flex-row gap-4 items-center pb-8">
                     <div class="md:w-40">
                         <div class="flex md:flex-col gap-2 items-center">
                             <div class="text-2xl font-bold">
@@ -22,6 +22,9 @@ const { events }: Props = Astro.props;
                             </div>
                             <div class="text-xl text-mandy-500 uppercase">
                                 {moment(data.date).format("MMMM")}
+                            </div>
+                            <div class="text-sm uppercase">
+                                {moment(data.date).format("YYYY")}
                             </div>
                         </div>
                     </div>

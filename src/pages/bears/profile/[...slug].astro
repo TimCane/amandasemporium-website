@@ -26,10 +26,10 @@ const {
     brand,
     species,
     rescued,
-    uploadedOn,
     rehomed,
     event,
     description,
+    notes
 } = bear.data;
 
 const {
@@ -59,6 +59,7 @@ if (event) {
     eventName = eventEntry.data.name;
     eventDate = eventEntry.data.date;
 }
+
 
 // const { Content } = await bear.render();
 ---
@@ -90,13 +91,16 @@ if (event) {
                     {speciesName}
                 </BearInfoBox>
             </div>
-
-            <BearInfoBox title="Rescued" color="mandy-300" outline={false}>
-                {moment(rescued.date).format("Do MMMM YYYY")} from {rescuedName}
+            
+            {notes && (
+            <BearInfoBox title="Fun Fact" color="mandy-300" outline={false}>
+                {notes}
             </BearInfoBox>
+            )}
 
-            <BearInfoBox title="Uploaded" color="mandy-200" outline={false}>
-                {moment(uploadedOn).format("Do MMMM YYYY")}
+
+            <BearInfoBox title="Rescued" color="mandy-200" outline={false}>
+                {moment(rescued.date).format("Do MMMM YYYY")} from {rescuedName}
             </BearInfoBox>
 
             <BearInfoBox

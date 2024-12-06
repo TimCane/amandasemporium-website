@@ -1,21 +1,14 @@
 ---
 import EventsList from "@/components/events/events-list.astro";
-import NoEvents from "@/components/events/no-events.astro";
 import Block from "@/components/ui/block.astro";
 import Container from "@/components/ui/container.astro";
+import H2 from "@/components/ui/headings/h2.astro";
 import PageLayout from "@/layouts/page.layout.astro";
 import { getCollection } from "astro:content";
 
 const now = new Date();
 
-const events = (
-    await getCollection(
-        "events",
-        ({ data }) => data.date.getTime() > now.getTime(),
-    )
-).reverse();
-
-const noEventsMessage = "No Events";
+const events = (await getCollection("events")).reverse();
 ---
 
 <PageLayout
@@ -25,8 +18,7 @@ const noEventsMessage = "No Events";
 >
     <Container>
         <Block>
-            {events && events.length > 0 && <EventsList events={events} />}
-            {!events || events.length == 0 && <NoEvents message={noEventsMessage}  />}
+            <EventsList events={events} />
         </Block>
     </Container>
 </PageLayout>

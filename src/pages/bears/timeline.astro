@@ -59,7 +59,7 @@ const groups = groupBy(items, "date");
 
                 {
                     groups &&
-                        Object.keys(groups).map((key, i) => (
+                        Object.keys(groups).map((key) => (
                             <>
                             
                 <li class="ms-4">
@@ -75,7 +75,7 @@ const groups = groupBy(items, "date");
                     >
                                 <ul class="block list-dis ml-5">
                                     {groups[key].map(
-                                        ({ bear, type }, index) => (
+                                        ({ bear, type }) => (
                                             <li>
                                                 <h3>
                                                     {type}: {bear.data.name}

@@ -27,7 +27,8 @@ const bearsCollection = defineCollection({
             rehomed: z.object({
                 location: reference("locations"),
                 date: z.date(),
-            }).optional()
+            }).optional(),
+            notes: z.string().optional()
         })
             .transform(values => ({
                 ...values,

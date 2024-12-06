@@ -2,13 +2,12 @@
 import { cn } from "@/libs/class-name";
 
 interface Props {
-    href?: string;
     title: string;
     color: string;
     outline: boolean;
 }
 
-const { href, title, color, outline }: Props = Astro.props;
+const { title, color, outline }: Props = Astro.props;
 ---
 
 <div

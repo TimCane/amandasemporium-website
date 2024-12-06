@@ -7,34 +7,11 @@ interface Props {
     letter?: string;
 }
 
-const entireAlphabet = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-];
+const entireAlphabet = [];
+
+for (var i = 97; i <= 122; i++) {
+    entireAlphabet.push(String.fromCharCode(i));
+}
 
 const { alphabet, url, letter }: Props = Astro.props;
 ---
@@ -46,8 +23,7 @@ const { alphabet, url, letter }: Props = Astro.props;
                 class={cn("rounded bg-mandy-50 hover:bg-mandy-300", {
                     "font-bold bg-mandy-200":
                         letter && l.toLowerCase() == letter.toLowerCase(),
-                    "bg-white hover:bg-white":
-                        alphabet.indexOf(l) == -1,
+                    "bg-white hover:bg-white": alphabet.indexOf(l) == -1,
                 })}
             >
                 {alphabet.indexOf(l) == -1 && (

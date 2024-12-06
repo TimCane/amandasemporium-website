@@ -13,4 +13,5 @@ event: "2023-09-23-surbiton-festival"
 rehomed:
     location: "tolworth"
     date: 2023-09-23
+notes: Limited Edition "Cool Cat". Ginger Tabby 2011
 ---

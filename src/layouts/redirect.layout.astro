@@ -1,9 +1,4 @@
 ---
-import Navbar from "@/components/layout/navbar.astro";
-import Block from "@/components/ui/block.astro";
-import Container from "@/components/ui/container.astro";
-import Banner from "@/components/layout/banner.astro";
-
 import "@fontsource-variable/overpass-mono";
 import "@fontsource-variable/overpass";
 import "@fontsource-variable/bitter";
@@ -26,17 +21,11 @@ const { newUrl, oldUrl }: Props = Astro.props;
         <link rel="canonical" href={newUrl} />
     </head>
     <body class="relative lg:text-lg">
-        <Navbar url={oldUrl} />
-        <Banner heading="Redirecting!" subText="Please wait..." />
-        <Container>
-            <Block className="text-center">
-                <a href={newUrl}>
-                    Redirecting from
-                    <code>{oldUrl}</code>
-                    to
-                    <code>{newUrl}</code>
-                </a>
-            </Block>
-        </Container>
+        <a href={newUrl}>
+            Redirecting from
+            <code>{oldUrl}</code>
+            to
+            <code>{newUrl}</code>
+        </a>
     </body>
 </html>
